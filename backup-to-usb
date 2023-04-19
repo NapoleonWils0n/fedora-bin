@@ -5,10 +5,11 @@ rsync -aAXvz --ignore-errors --delete --progress \
 --exclude Downloads \
 --exclude Music \
 --exclude Videos \
---exclude .nix-channels \
---exclude .nix-defexpr \
---exclude .nix-profile \
+--exclude .nv \
+--exclude .var \
 --exclude .cache \
 --exclude .dbus \
 --exclude .mozilla \
+--exclude .local/share/flatpak \
+--exclude .local/share/Trash \
 /home/djwilcox /var/run/media/djwilcox/backup
