@@ -5,6 +5,7 @@ rsync -aAXvz --ignore-errors --delete --progress \
 --exclude Downloads \
 --exclude Music \
 --exclude Videos \
+--exclude torrents \
 --exclude .nv \
 --exclude .var \
 --exclude .cache \
