@@ -84,10 +84,12 @@ outfile_default="${infile_name}-super-resolution-$(date +"%Y-%m-%d-%H-%M-%S").mp
 
 # if you arenet using selinunx change /tmp/data:/data to "$PWD":/data below and omit creating the directory
 
+#--rm --security-opt=label=disable \
+
 superresolution () {
 podman run \
---rm --security-opt=label=disable \
---gpus all -u $(id -u):$(id -g) \
+--rm \
+--gpus all -u "$(id -u)":"$(id -g)" \
 --privileged -v /tmp/data:/data -w /data \
 -i miratmu/ffmpeg-tensorflow \
 -hide_banner \
