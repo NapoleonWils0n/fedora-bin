@@ -74,9 +74,15 @@ outfile_default="${infile_name}-super-resolution-$(date +"%Y-%m-%d-%H-%M-%S").mp
 # functions
 #===============================================================================
 
+# selinux fix
 # create the /tmp/data directory and set permissions
 # mkdir -p /tmp/data
 # chmod 777 /tmp/data
+
+# we then map /tmp/data to /data in the docker container
+# /tmp/data:/data
+
+# if you arenet using selinunx change /tmp/data:/data to "$PWD":/data below and omit creating the directory
 
 superresolution () {
 podman run \
