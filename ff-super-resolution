@@ -84,8 +84,6 @@ outfile_default="${infile_name}-super-resolution-$(date +"%Y-%m-%d-%H-%M-%S").mp
 
 # if you arenet using selinunx change /tmp/data:/data to "$PWD":/data below and omit creating the directory
 
-#--rm --security-opt=label=disable \
-
 superresolution () {
 podman run \
 --rm \

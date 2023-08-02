@@ -11,6 +11,7 @@ rsync -aAXvz --ignore-errors --delete --progress \
 --exclude .cache \
 --exclude .dbus \
 --exclude .mozilla \
+--exclude .local/share/containers \
 --exclude .local/share/flatpak \
 --exclude .local/share/Trash \
 /home/djwilcox /var/run/media/djwilcox/backup
