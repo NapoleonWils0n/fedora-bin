@@ -15,7 +15,7 @@ usage () {
 [ -z "${1}" ] || echo "! ${1}"
 # display help
 echo "\
-$(basename "$0") -i url"
+$(basename "$0") -i input -s 00:00:00 -t 00:00:00"
 exit 2
 }
 
@@ -123,8 +123,7 @@ ffmpeg \
 -re \
 -i "${video_url}" \
 -i "${audio_url}" \
--c:a aac \
--c:v libx264 -profile:v high \
+-c:a copy -c:v copy \
 -tune zerolatency \
 -map 0:0 -map 1:0 \
 -f matroska /tmp/relay
@@ -145,7 +144,8 @@ ffmpeg \
 -i "${video_url}" \
 -i "${audio_url}" \
 -t "${end}" \
--c:a copy -c:v copy \
+-c:a aac \
+-c:v libx264 -profile:v high \
 -tune zerolatency \
 -map 0:0 -map 1:0 \
 -f matroska /tmp/relay

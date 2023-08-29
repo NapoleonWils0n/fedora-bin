@@ -15,7 +15,7 @@ usage () {
 [ -z "${1}" ] || echo "! ${1}"
 # display help
 echo "\
-$(basename "$0") -i url"
+$(basename "$0") -i url -s 00:00:00 -t 00:00:00"
 exit 2
 }
 
