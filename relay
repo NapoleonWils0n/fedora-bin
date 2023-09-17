@@ -131,7 +131,7 @@ ffmpeg \
 
 
 # trim video and re-encode
-two_streams () {
+two_streams_trim () {
 video_url=$(echo "${url}" | awk 'BEGIN{ RS ="" ; FS ="\n" }{print $1}')
 audio_url=$(echo "${url}" | awk 'BEGIN{ RS ="" ; FS ="\n" }{print $2}')
 
