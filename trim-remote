@@ -19,12 +19,12 @@ echo "\
 # trim a remote video clip with millisecond accuracy
 https://trac.ffmpeg.org/wiki/Seeking
 
-$(basename "$0") -s 00:00:00.000 -i input -t 00:00:00.000 -o output)
+$(basename "$0") -s 00:00:00.000 -i url -t 00:00:00.000 -o output
 -s 00:00:00.000 : start time
 -i url
 -t 00:00:00.000 : number of seconds after start time
 -o output.(mp4|webm|aac|mp3|wav|ogg) : optional argument 
-# if option not provided defaults input-name-[start end].(mp4|webm|aac|mp3|wav|ogg)"
+# if option not provided defaults input-name-[start end].mp4"
 exit 2
 }
 
