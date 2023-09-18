@@ -69,7 +69,7 @@ shift $((OPTIND-1))
 #===============================================================================
 
 # yt-dlp url
-url=$(yt-dlp -f b -g --no-playlist --print '%(title)s' "${input}")
+url=$(yt-dlp -i -f b -g --no-playlist --print '%(title)s' "${input}")
 
 # check number of stream links
 streamcount=$(echo "${url}" | awk '/^https?:\/\// {count++} END{ print count }')
@@ -112,6 +112,7 @@ one_stream_trim () {
 video_url=$(echo "${urllist}" | awk 'BEGIN{ RS ="" ; FS ="\n" }{print $1}')
 ffmpeg \
 -hide_banner \
+-stats -v panic \
 -ss "${start}" \
 -i "${video_url}" \
 -t "${end}" \
@@ -135,6 +136,7 @@ audio_url=$(echo "${urllist}" | awk 'BEGIN{ RS ="" ; FS ="\n" }{print $2}')
 # ffmpeg join audio and video and stream
 ffmpeg \
 -hide_banner \
+-stats -v panic \
 -ss "${start}" \
 -i "${video_url}" \
 -i "${audio_url}" \
